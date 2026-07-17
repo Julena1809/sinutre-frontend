@@ -21,43 +21,43 @@ Até o momento, o backend contempla as operações principais de gerenciamento d
 * PUT `/foods/:id` - Atualização de alimentos existentes.
 * DELETE `/foods/:id` - Exclusão de alimentos cadastrados.
 
-## Próximas etapas de desenvolvimento
-
-Para conclusão do projeto e atendimento aos requisitos complementares da atividade, serão implementadas as seguintes funcionalidades:
-
-1. Validação dos dados de alimentos no cadastro e alteração:
+Validação dos dados de alimentos no cadastro e alteração:
 
 * Verificar preenchimento dos campos obrigatórios;
 * Validar tipos de dados recebidos;
 * Impedir valores inválidos para informações nutricionais;
 * Retornar mensagens de erro adequadas ao usuário.
 
-2. Cadastro e gerenciamento dos dados complementares do usuário:
+## Próximas etapas de desenvolvimento
+
+Para conclusão do projeto e atendimento aos requisitos complementares da atividade, serão implementadas as seguintes funcionalidades:
+
+1. Cadastro e gerenciamento dos dados complementares do usuário:
 
 * Implementar cadastro de informações como peso, altura, meta calórica diária e nível de atividade física;
 * Armazenar essas informações no banco de dados;
 * Criar funcionalidade de alteração desses dados.
 
-3. Implementação do dashboard nutricional:
+2. Implementação do dashboard nutricional:
 
 * Exibir a meta calórica diária cadastrada pelo usuário;
 * Comparar consumo atual com a meta estabelecida;
 * Sinalizar quando a meta diária for ultrapassada.
 
-4. Criação da página de métricas:
+3. Criação da página de métricas:
 
 * Implementar cálculo do IMC do usuário;
 * Exibir classificação do IMC conforme faixas estabelecidas;
 * Calcular média calórica consumida nos últimos sete dias;
 * Comparar a média de consumo com a meta definida.
 
-5. Melhorias na experiência do usuário:
+4. Melhorias na experiência do usuário:
 
 * Implementar funcionalidade de logout;
 * Realizar ajustes visuais na interface;
 * Melhorar mensagens de validação e tratamento de erros.
 
-6. Publicação do projeto:
+5. Publicação do projeto:
 
 * Disponibilizar o backend em ambiente de produção utilizando Railway;
 * Disponibilizar o frontend utilizando Vercel;
