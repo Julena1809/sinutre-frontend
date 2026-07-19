@@ -5,7 +5,7 @@ import {
   useState,
 } from 'react';
 
-import { api } from '@/lib/api';
+import { api, setToken } from '@/lib/api';
 import type { User } from '@/types/user';
 
 interface AuthContextData {
@@ -41,14 +41,33 @@ export function AuthProvider({
       setUser(null);
     }
   }
-
   useEffect(() => {
-    refreshUser().finally(() =>
-      setLoading(false),
+  async function initializeAuth() {
+    const params = new URLSearchParams(
+      window.location.search,
     );
-  }, []);
 
-  return (
+    const token = params.get('token');
+
+    if (token) {
+      setToken(token);
+
+      // remove o token da URL
+      window.history.replaceState(
+        {},
+        document.title,
+        window.location.pathname,
+      );
+    }
+
+    await refreshUser();
+    setLoading(false);
+  }
+
+  initializeAuth();
+}, []);
+
+return (
     <AuthContext.Provider
       value={{
         user,
