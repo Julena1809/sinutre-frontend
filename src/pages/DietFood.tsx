@@ -4,7 +4,12 @@ import { Plus } from '@phosphor-icons/react';
 import { SimpleHeader } from '@/components/layout/SimpleHeader';
 import { AddFoodModal } from '@/components/modal/AddFoodModal';
 
-import { getFoods } from '@/services/foodService';
+import {
+  getFoods,
+  deleteFood,
+
+} from '@/services/foodService';
+
 import type { Food } from '@/types/food';
 
 const MODAL_ID = 'create-food-modal';
@@ -21,6 +26,22 @@ export function DietFoodPage() {
       setLoading(false);
     }
   }
+  async function handleDelete(id: number) {
+  const confirmed = window.confirm(
+    'Deseja realmente excluir este alimento?',
+  );
+
+  if (!confirmed) {
+    return;
+  }
+
+  try {
+    await deleteFood(id);
+    await loadFoods();
+  } catch {
+    alert('Erro ao excluir alimento.');
+  }
+}
 
   useEffect(() => {
     loadFoods();
@@ -48,39 +69,52 @@ export function DietFoodPage() {
                 </h2>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
-                  <span>
-                    🔥 {food.caloriesPer100g} kcal
-                  </span>
+  <div className="card-actions justify-end mt-4 gap-2">
+  <button
+    className="btn btn-warning btn-sm"
+  >
+    ✏️ Editar
+  </button>
 
-                  <span>
-                    🍞 {food.carbsPer100g} g
-                  </span>
+  <button
+    className="btn btn-error btn-sm"
+    onClick={() => handleDelete(food.id)}
+  >
+    🗑 Excluir
+  </button>
+</div>
 
-                  <span>
-                    🍗 {food.proteinPer100g} g
-                  </span>
+<span>
+    🔥 {food.caloriesPer100g} kcal
+</span>
+<span>
+     🍞 {food.carbsPer100g} g
+</span>
+<span>
+     🍗 {food.proteinPer100g} g
+</span>
 
-                  <span>
-                    🥑 {food.fatPer100g} g
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+<span>
+     🥑 {food.fatPer100g} g
+</span>
+</div>
+</div>
+</div>
+   ))}
+</div>
+)}
 
-      <button
-        className="btn btn-primary btn-circle btn-lg fixed bottom-6 right-6 shadow-lg z-50"
-        onClick={() =>
-          (
-            document.getElementById(
-              MODAL_ID,
-            ) as HTMLDialogElement
-          )?.showModal()
-        }
-      >
-        <Plus size={24} weight="bold" />
+<button
+  className="btn btn-primary btn-circle btn-lg fixed bottom-6 right-6 shadow-lg z-50"
+  onClick={() =>
+(
+  document.getElementById(
+    MODAL_ID,
+    ) as HTMLDialogElement
+    )?.showModal()
+}
+   >
+     <Plus size={24} weight="bold" />
       </button>
 
       <AddFoodModal
