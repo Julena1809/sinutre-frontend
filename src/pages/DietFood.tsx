@@ -16,6 +16,8 @@ const MODAL_ID = 'create-food-modal';
 
 export function DietFoodPage() {
   const [foods, setFoods] = useState<Food[]>([]);
+  const [selectedFood, setSelectedFood] =
+  useState<Food | null>(null);
   const [loading, setLoading] = useState(true);
 
   async function loadFoods() {
@@ -71,10 +73,19 @@ export function DietFoodPage() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
   <div className="card-actions justify-end mt-4 gap-2">
   <button
-    className="btn btn-warning btn-sm"
-  >
-    ✏️ Editar
-  </button>
+  className="btn btn-warning btn-sm"
+  onClick={() => {
+    setSelectedFood(food);
+
+    (
+      document.getElementById(
+        MODAL_ID,
+      ) as HTMLDialogElement
+    )?.showModal();
+  }}
+>
+  ✏️ Editar
+</button>
 
   <button
     className="btn btn-error btn-sm"
@@ -106,21 +117,24 @@ export function DietFoodPage() {
 
 <button
   className="btn btn-primary btn-circle btn-lg fixed bottom-6 right-6 shadow-lg z-50"
-  onClick={() =>
-(
-  document.getElementById(
-    MODAL_ID,
+onClick={() => {
+  setSelectedFood(null);
+
+  (
+    document.getElementById(
+      MODAL_ID,
     ) as HTMLDialogElement
-    )?.showModal()
-}
-   >
+  )?.showModal();
+}}
+  >
      <Plus size={24} weight="bold" />
       </button>
 
       <AddFoodModal
         modalId={MODAL_ID}
         onCreated={loadFoods}
-      />
+        food={selectedFood}
+  />
     </div>
   );
 }

@@ -1,3 +1,53 @@
-@import 'tailwindcss';
-@plugin 'daisyui';
-@import './theme.css';
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "sinutre";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  /* Fundos neutros em tom creme/areia */
+  --color-base-100: oklch(96% 0.02 85);  /* Fundo principal */
+  --color-base-200: oklch(91% 0.03 85);  /* Cards / Containers */
+  --color-base-300: oklch(86% 0.04 85);  /* Bordas / Destaques suaves */
+  --color-base-content: oklch(18% 0.03 85); /* Texto escuro */
+
+  /* Primária: Verde Folha */
+  --color-primary: oklch(48% 0.14 145);
+  --color-primary-content: oklch(98% 0.005 145);
+
+  /* Secundária: Terracota */
+  --color-secondary: oklch(58% 0.16 55);
+  --color-secondary-content: oklch(98% 0.005 55);
+
+  /* Accent: Amarelo Quente */
+  --color-accent: oklch(75% 0.14 85);
+  --color-accent-content: oklch(20% 0.04 85);
+
+  /* Neutro */
+  --color-neutral: oklch(28% 0.02 140);
+  --color-neutral-content: oklch(98% 0.005 140);
+
+  /* Estados e Alertas */
+  --color-info: oklch(52% 0.15 250);
+  --color-info-content: oklch(98% 0.005 250);
+
+  --color-success: oklch(50% 0.15 160);
+  --color-success-content: oklch(98% 0.005 160);
+
+  --color-warning: oklch(78% 0.16 75);
+  --color-warning-content: oklch(20% 0.04 75);
+
+  --color-error: oklch(50% 0.20 28);
+  --color-error-content: oklch(98% 0.005 28);
+
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
