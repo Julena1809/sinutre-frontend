@@ -46,8 +46,7 @@ npm run preview # preview do build
 
 ## Tema
 
-O tema customizado `sinutre` (paleta verde) está definido em
-`src/styles/theme.css` usando a sintaxe `@plugin 'daisyui/theme'` do daisyUI v5.
+O tema foi refatorado com ajuste no esquema de cores (apenas alteração no código hexadecimal)
 =======
 # Histórico de Desenvolvimento e Estado Atual do Projeto
 
