@@ -5,13 +5,14 @@ import {
   useState,
 } from 'react';
 
-import { api, setToken } from '@/lib/api';
+import {api, setToken, clearToken,} from '@/lib/api';
 import type { User } from '@/types/user';
 
 interface AuthContextData {
   user: User | null;
   loading: boolean;
   refreshUser: () => Promise<void>;
+  logout: () => void;
 }
 
 const AuthContext =
@@ -41,6 +42,13 @@ export function AuthProvider({
       setUser(null);
     }
   }
+  function logout() {
+  clearToken();
+
+  setUser(null);
+
+  window.location.href = '/';
+}
   useEffect(() => {
   async function initializeAuth() {
     const params = new URLSearchParams(
@@ -70,10 +78,13 @@ export function AuthProvider({
 return (
     <AuthContext.Provider
       value={{
-        user,
-        loading,
-        refreshUser,
-      }}
+      user,
+      loading,
+      refreshUser,
+      logout,
+}}
+
+
     >
       {children}
     </AuthContext.Provider>
