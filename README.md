@@ -1,117 +1,140 @@
-<<<<<<< HEAD
-# Nutridash
+SiNutre
 
-Dashboard de nutrição em React, convertido a partir do protótipo HTML original
-em `../Nutridash`. Toda a estilização foi migrada para Tailwind CSS (com daisyUI
-v5 como plugin) e a UI foi quebrada em componentes reutilizáveis.
+Projeto Final da "Formação em Desenvolvimento Web Moderno".
 
-## Stack
+O projeto foi desenvolvido a partir do MVP SiNutre disponibilizado durante o curso, tendo como objetivo implementar melhorias e novas funcionalidades conforme os requisitos complementares propostos na atividade final.
 
-- Vite 6 + React 19 + TypeScript
-- Tailwind CSS v4 (via `@tailwindcss/vite`)
-- daisyUI v5 (plugin do Tailwind)
-- @phosphor-icons/react para os ícones
-- ESLint 9 (flat config) + typescript-eslint
 
-## Estrutura
+Aplicação em Produção
 
-```
-src/
-├── components/
-│   ├── cards/      # AddMealCard, TotalMealsCard
-│   ├── forms/      # FormField
-│   ├── layout/     # Sidebar, SidebarBrand, SidebarItem, Header
-│   ├── macros/     # MacroStat, MacroStatsBar
-│   ├── meals/      # MealActionButton, MealFab, MealsList/Table…
-│   └── modal/      # AddMealModal e suas sub-partes
-├── constants/      # MEAL_CATEGORIES, NAV_ITEMS
-├── data/           # mocks de usuário, macros e refeições
-├── hooks/          # useMealModal
-├── pages/          # DashboardPage
-├── styles/         # tailwind + tema sinutre
-├── types/          # tipos de domínio
-├── App.tsx
-└── main.tsx
-```
+Frontend (Vercel)
 
-## Scripts
+https://sinutre-frontend.vercel.app
 
-```bash
-npm install     # instala dependências
-npm run dev     # servidor de desenvolvimento (vite)
-npm run build   # build de produção (tsc -b + vite build)
-npm run lint    # ESLint em todo o projeto
-npm run preview # preview do build
-```
+Backend (Railway)
 
-## Tema
+https://sinutre-backend-production-9950.up.railway.app
 
-O tema foi refatorado com ajuste no esquema de cores (apenas alteração no código hexadecimal)
-=======
-# Histórico de Desenvolvimento e Estado Atual do Projeto
 
-O projeto SiNutre foi iniciado a partir do MVP disponibilizado no curso de Formação em Desenvolvimento Web Moderno. A primeira etapa de desenvolvimento teve como objetivo compreender a estrutura existente do backend, configurar o ambiente local, executar a aplicação e preparar o projeto para receber novas funcionalidades conforme os requisitos complementares propostos.
 
-Inicialmente foi realizada a configuração do ambiente de desenvolvimento utilizando Node.js, TypeScript, Express, Prisma ORM e SQLite. Também foi realizada a organização do projeto para execução local através do comando `npm run dev`, garantindo que o backend estivesse funcionando corretamente em ambiente de desenvolvimento.
+Repositórios
 
-Durante a análise do código existente, foi identificado que o módulo de alimentos já possuía a estrutura inicial para cadastro e consulta de alimentos. A partir dessa base, foram implementadas melhorias no gerenciamento dos alimentos cadastrados pelo usuário autenticado.
+Frontend
 
-As alterações realizadas até o momento foram:
+https://github.com/Julena1809/sinutre-frontend
 
-* Implementação da funcionalidade de atualização de alimentos cadastrados, permitindo alterar informações como nome do alimento, calorias, carboidratos, proteínas e gorduras.
-* Implementação da funcionalidade de exclusão de alimentos cadastrados, permitindo remover registros existentes associados ao usuário autenticado.
-* Manutenção da funcionalidade original de cadastro de alimentos através do método POST, preservando a estrutura inicial do MVP.
-* Manutenção da funcionalidade de listagem de alimentos através do método GET, incluindo busca por nome e ordenação dos registros.
-* Organização e versionamento das alterações utilizando Git, com commits descritivos e envio das atualizações para o repositório público do GitHub.
+Backend
 
-Até o momento, o backend contempla as operações principais de gerenciamento de alimentos (CRUD parcial), possuindo as seguintes operações disponíveis:
+https://github.com/Julena1809/sinutre-backend
 
-* GET `/foods` - Listagem e pesquisa de alimentos cadastrados.
-* POST `/foods` - Cadastro de novos alimentos.
-* PUT `/foods/:id` - Atualização de alimentos existentes.
-* DELETE `/foods/:id` - Exclusão de alimentos cadastrados.
 
-Validação dos dados de alimentos no cadastro e alteração:
 
-* Verificar preenchimento dos campos obrigatórios;
-* Validar tipos de dados recebidos;
-* Impedir valores inválidos para informações nutricionais;
-* Retornar mensagens de erro adequadas ao usuário.
+Tecnologias Utilizadas
 
-## Próximas etapas de desenvolvimento
+Backend
 
-Para conclusão do projeto e atendimento aos requisitos complementares da atividade, serão implementadas as seguintes funcionalidades:
+Node.js
+TypeScript
+Express
+Prisma ORM
+SQLite
+JWT
+GitHub OAuth
 
-1. Cadastro e gerenciamento dos dados complementares do usuário:
+Frontend
 
-* Implementar cadastro de informações como peso, altura, meta calórica diária e nível de atividade física;
-* Armazenar essas informações no banco de dados;
-* Criar funcionalidade de alteração desses dados.
+React
+TypeScript
+Vite
+Tailwind CSS
+DaisyUI
+Axios
 
-2. Implementação do dashboard nutricional:
 
-* Exibir a meta calórica diária cadastrada pelo usuário;
-* Comparar consumo atual com a meta estabelecida;
-* Sinalizar quando a meta diária for ultrapassada.
 
-3. Criação da página de métricas:
+Funcionalidades Implementadas
 
-* Implementar cálculo do IMC do usuário;
-* Exibir classificação do IMC conforme faixas estabelecidas;
-* Calcular média calórica consumida nos últimos sete dias;
-* Comparar a média de consumo com a meta definida.
+As funcionalidades abaixo foram desenvolvidas sobre o MVP disponibilizado durante o curso.
 
-4. Melhorias na experiência do usuário:
+Alteração de alimentos
 
-* Implementar funcionalidade de logout;
-* Realizar ajustes visuais na interface;
-* Melhorar mensagens de validação e tratamento de erros.
+Foi implementada a funcionalidade de edição dos alimentos cadastrados pelo usuário, permitindo alterar:
 
-5. Publicação do projeto:
+Nome;
+Calorias por 100g;
+Carboidratos por 100g;
+Proteínas por 100g;
+Gorduras por 100g.
 
-* Disponibilizar o backend em ambiente de produção utilizando Railway;
-* Disponibilizar o frontend utilizando Vercel;
-* Atualizar este README com os links de acesso da aplicação publicada e com a descrição final das funcionalidades implementadas.
+Requisito Complementares implementados 
 
-O projeto encontra-se atualmente com a estrutura inicial consolidada, backend funcional e preparado para evolução das próximas funcionalidades previstas nos requisitos complementares.
->>>>>>> 0aba8ebcc798ed7dd1e7763541a197b967cc2bf4
+Exclusão de alimentos
+
+Foi implementada a funcionalidade de exclusão de alimentos cadastrados pelo usuário autenticado, incluindo confirmação antes da remoção do registro.
+
+Validação de dados
+
+Foram implementadas validações durante o cadastro e alteração dos alimentos, contemplando:
+
+obrigatoriedade dos campos;
+conversão dos valores numéricos;
+prevenção de envio de valores inválidos;
+tratamento de erros retornados pela API.
+
+Logout
+
+Foi implementado um botão de logout que:
+
+encerra a sessão do usuário;
+remove o token JWT armazenado;
+redireciona automaticamente para a tela inicial de autenticação.
+
+Personalização da Interface
+
+Foi realizada a personalização da identidade visual da aplicação através da alteração do tema e das cores utilizando DaisyUI.
+
+Funcionalidades do MVP Utilizadas
+
+Além das melhorias implementadas neste projeto, foram preservadas e utilizadas as funcionalidades originalmente disponibilizadas no MVP do curso:
+Autenticação utilizando GitHub OAuth;
+Cadastro de alimentos;
+Cadastro de refeições;
+Dashboard nutricional;
+Persistência dos dados utilizando Prisma ORM e SQLite;
+Integração entre frontend e backend.
+
+Requisitos Complementares Atendidos
+
+| Ref. | Requisito | Status |
+|------|-----------|:------:|
+| 01 | Alterar alimento cadastrado | ✅ |
+| 02 | Excluir alimento cadastrado | ✅ |
+| 03 | Validação de dados no cadastro e alteração | ✅ |
+| 11 | Implementação de Logout | ✅ |
+| 12 | Alteração da identidade visual | ✅ |
+
+Como Executar Localmente
+
+Backend
+
+bash
+npm install
+
+npm run dev
+
+
+Frontend
+
+bash
+npm install
+
+npm run dev
+
+
+
+
+Autor
+
+Elivaldo de Jesus Souza
+
+Projeto desenvolvido como atividade avaliativa da **Formação em Desenvolvimento Web Moderno**, implementando melhorias sobre o MVP disponibilizado durante o curso.
