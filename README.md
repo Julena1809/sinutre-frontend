@@ -9,11 +9,11 @@ Aplicação em Produção
 
 Frontend (Vercel)
 
-https://sinutre-frontend.vercel.app
+https://sinutre-frontend-eight.vercel.app
 
 Backend (Railway)
 
-https://sinutre-backend-production-9950.up.railway.app
+https://sinutre-backend-production-37d9.up.railway.app
 
 
 
